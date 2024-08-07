@@ -8,13 +8,28 @@ using System.Threading.Tasks;
 
 namespace crud_dict
 {
-    internal class Myqueue
+    internal class Myqueue<T>
     {
-        public Queue myQueue = new Queue();
-        public void Clear() { myQueue.Clear(); }
-        public void Enqueue(string value) {myQueue.Enqueue(value); }
-        public void Enqueue(int value) {myQueue.Enqueue(value); }
-        public string Dequeue() { return myQueue.Dequeue(); }
-        public void Peek() { myQueue.Peek(); }
+        private Queue<T> myQueue = new Queue<T>();
+
+        public void Clear()
+        {
+            myQueue.Clear();
+        }
+
+        public void Enqueue(T value)
+        {
+            myQueue.Enqueue(value);
+        }
+
+        public T Dequeue()
+        {
+            return myQueue.Dequeue();
+        }
+
+        public T Peek()
+        {
+            return myQueue.Peek();
+        }
     }
 }

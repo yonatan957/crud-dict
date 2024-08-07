@@ -1,15 +1,21 @@
-﻿namespace crud_dict
+﻿using System.Collections.Generic;
+
+namespace crud_dict
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Myqueue queue = new Myqueue();
-            queue.Enqueue(1);
-            queue.Enqueue("ba");
-            Console.WriteLine(queue.Peek);
-            Console.WriteLine(queue.Dequeue);
-            Console.WriteLine(queue.Dequeue);
+            Myqueue<string> stringQueue = new Myqueue<string>();
+            stringQueue.Enqueue("Hello");
+            string value = stringQueue.Dequeue();
+            Console.WriteLine(value);
+
+            // שימוש במחלקה עבור תור של מספרים שלמים
+            Myqueue<int> intQueue = new Myqueue<int>();
+            intQueue.Enqueue(10);
+            int number = intQueue.Dequeue();
+            Console.WriteLine(number);
         }
     }
 }

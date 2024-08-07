@@ -6,20 +6,15 @@ using System.Threading.Tasks;
 
 namespace crud_dict
 {
-    internal class dict
+    internal class dict<TKey, TValue>
     {
-        public Dictionary<string, string> mydict = new Dictionary<string, string>();
+        public Dictionary<TKey, TValue> MyDictionary;
 
-        public void Add(string key, string value) { mydict.Add(key, value); }
-        public string Get(string key) { return mydict[key]; }
-        public void Remove(string key) { mydict.Remove(key); }
-        public void Clear()
-        {
-            mydict.Clear();
-        }
-        public void update(string key, string value)
-        {
-            mydict[key] = value;
-        }
+        public dict() { MyDictionary = new Dictionary<TKey, TValue>(); }
+
+        public void Add(TKey key, TValue value) { MyDictionary[key] = value; }
+        public TValue Get(TKey key) { return MyDictionary[key]; }
+        public void Remove(TKey key) { MyDictionary.Remove(key); }
+        public void Clear() { MyDictionary.Clear(); }
     }
 }
